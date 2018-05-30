@@ -15,7 +15,7 @@ this project used design pattern called `MVC`
 1. Install python
  . https://www.python.org/downloads/
 2. Download SQLlite DB
- . pip3 install sqllite
+ . `pip3 install sqllite`
 3. Download sqlalchemy `ORM` (DB-API)
 . ```pip3 install  sqlalchemy```
 4. Download oauth2client from here
