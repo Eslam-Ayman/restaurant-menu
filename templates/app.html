@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="stylesheet" href="/templates/assets/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="//apis.google.com/js/platform.js?onload=start"> </script>
+	</head>
+	<body>
+		{% include "nav.html" %}
+		<div class="container">
+			{% include "messages.html" %}
+			{% block content %}
+			{% endblock %}
+		</div>
+	</body>
+</html>

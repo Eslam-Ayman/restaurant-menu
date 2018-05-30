@@ -1,0 +1,50 @@
+{% extends 'app.html' %}
+{% block content %}
+		
+	<div class="panel panel-info">
+	  <div class="panel-heading">
+	    <h3 class="panel-title">All Resturants</h3>
+	    {%if 'username' in session %}
+	    <a href="{{url_for('newRestaurant')}}" class="pull-right">
+			<button class="btn btn-default" id="new-restaurant">
+				<span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>Add Restaurant
+			</button>
+		</a>
+		{% endif %}
+	  </div>
+	  <div class="panel-body">
+
+	  	  	<div class="table-responsive">
+	            <table class="table table-striped">
+	              <thead>
+	                <tr>
+	                  <th>Resturant Name</th>
+	                  <th>All Menues</th>
+	                  <th>Edit</th>
+	                  <th>Delete</th>
+	                </tr>
+	              </thead>
+	              <tbody>
+					{% for restaurant in restaurants %}
+	                <tr>
+	                  <td>{{restaurant.name}}</td>
+	                  <td>
+	                  	<a href = "{{url_for('showMenu', restaurant_id = restaurant.id)}}" class="btn btn-info">Show Menues</a>
+	                  </td>
+	                  <td>
+	                  	{%if 'username' in session and restaurant.user_id == login_session %}
+	                  	<a href = "{{url_for('editRestaurant', restaurant_id = restaurant.id)}}" class="btn btn-warning">Edit Resturant</a>
+	                  	{%endif%}
+	                  </td>
+	                  <td>
+	                  	{%if 'username' in session and restaurant.user_id == login_session %}
+	                  	<a href = "{{url_for('deleteRestaurant', restaurant_id = restaurant.id)}}" class="btn btn-danger">Del Resturant</a>
+	                  	{%endif%}
+	                  </td>
+	                </tr>
+					{% endfor %}
+	              </tbody>
+	            </table>
+          	</div>
+	  </div>
+{% endblock %}
